@@ -7,7 +7,7 @@ const API_KEY = 'e405a49c88462d007a0b53d3208dfbf3'
 export default class App extends React.Component {
 
   state = {
-    isLoading: false,
+    isLoading: true,
     temperature: 0,
     weatherCondition: null,
     error: null,
@@ -20,38 +20,38 @@ export default class App extends React.Component {
       },
       error => {
         this.setState({
-          error: 'Error Getting Weather Condition'
+          error: 'Error Retriving Weather Conditions'
         });
       }
     );
   }
 
-  fetchWeather(lat = 25, lon = 25) {
+  fetchWeather(lat, lon) {
     fetch(
       `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=${API_KEY}&units=metric`
     )
       .then(res => res.json())
-      .then(res => {
-        console.log(res);
+      .then(data => {
+        console.log(data);
         this.setState({
-          temperature: res.main.temp,
-          weatherCondition: res.weather[0].main,
-          isLoading: false       
-         })
+          temperature: data.main.temp,
+          weatherCondition: data.weather[0].main,
+          isLoading: false 
+         });
       });
   }
 
   
   render() {
-    const isLoading = this.state
+    const { isLoading, weatherCondition, temperature } = this.state
 
     return (
       <View style={styles.container}>
         {isLoading ? (
-          <View style={styles.container}>
-            <Text>Fetching Your Weather</Text> 
-          </View>)
-          : (
+          <View style={styles.loadingContainer}>
+            <Text stlye={styles.loadingText}>Fetching Your Weather</Text> 
+          </View>
+          ) : (
             <Weather weather={weatherCondition} temperature={temperature} />
         )}
       </View>
@@ -62,8 +62,15 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#fff'
+  },
+  loadingContainer: {
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#FFFDE4'
   },
+  loadingText: {
+    fontSize: 30
+  }
 });
