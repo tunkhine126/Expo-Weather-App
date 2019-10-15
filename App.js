@@ -8,6 +8,8 @@ export default class App extends React.Component {
 
   state = {
     isLoading: true,
+    latitude: 0,
+    longitude: 0,
     temperature: 0,
     weatherCondition: null,
     error: null,
@@ -28,9 +30,8 @@ export default class App extends React.Component {
     );
   }
 
-  
-
   fetchWeather(lat, lon) {
+    console.log(lat)
     fetch(
       `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=${API_KEY}&units=imperial`
     )

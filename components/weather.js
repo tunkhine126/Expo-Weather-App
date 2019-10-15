@@ -17,7 +17,7 @@ const Weather = ({ weather, temperature, location, humidity }) => {
       </View>
       <View style={styles.headerContainer}>
         <MaterialCommunityIcons
-          size={200}
+          size={170}
           name={weatherConditions[weather].icon}
           color={'#fff'}
         />
