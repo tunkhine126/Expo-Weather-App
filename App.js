@@ -11,6 +11,8 @@ export default class App extends React.Component {
     temperature: 0,
     weatherCondition: null,
     error: null,
+    location: null,
+    humidity: null,
   };
 
   componentDidMount() {
@@ -26,9 +28,11 @@ export default class App extends React.Component {
     );
   }
 
+  
+
   fetchWeather(lat, lon) {
     fetch(
-      `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=${API_KEY}&units=metric`
+      `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=${API_KEY}&units=imperial`
     )
       .then(res => res.json())
       .then(data => {
@@ -36,14 +40,16 @@ export default class App extends React.Component {
         this.setState({
           temperature: data.main.temp,
           weatherCondition: data.weather[0].main,
-          isLoading: false 
+          isLoading: false,
+          location: data.name,
+          humidity: data.main.humidity
          });
       });
   }
 
   
   render() {
-    const { isLoading, weatherCondition, temperature } = this.state
+    const { isLoading, weatherCondition, temperature, location, humidity } = this.state
 
     return (
       <View style={styles.container}>
@@ -52,7 +58,7 @@ export default class App extends React.Component {
             <Text stlye={styles.loadingText}>Fetching Your Weather</Text> 
           </View>
           ) : (
-            <Weather weather={weatherCondition} temperature={temperature} />
+            <Weather weather={weatherCondition} temperature={temperature} location={location} humidity={humidity}/>
         )}
       </View>
     );

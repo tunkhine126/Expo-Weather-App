@@ -4,7 +4,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
 import { weatherConditions } from '../utilities/weatherConditions';
 
-const Weather = ({ weather, temperature }) => {
+const Weather = ({ weather, temperature, location, humidity }) => {
   return (
     <View
       style={[
@@ -13,17 +13,25 @@ const Weather = ({ weather, temperature }) => {
       ]}
     >
       <View style={styles.headerContainer}>
+        <Text style={styles.tempText}>Temp: {temperature}˚</Text>
+      </View>
+      <View style={styles.headerContainer}>
         <MaterialCommunityIcons
-          size={72}
+          size={200}
           name={weatherConditions[weather].icon}
           color={'#fff'}
         />
-        <Text style={styles.tempText}>{temperature}˚</Text>
+      </View>
+      <View style={styles.headerContainer}>
+        <Text style={styles.title}>{location}</Text>
       </View>
       <View style={styles.bodyContainer}>
         <Text style={styles.title}>{weatherConditions[weather].title}</Text>
         <Text style={styles.subtitle}>
           {weatherConditions[weather].subtitle}
+        </Text>
+        <Text style={styles.subtitle}>
+          Humidity: {humidity}%
         </Text>
       </View>
     </View>
@@ -46,7 +54,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around'
   },
   tempText: {
-    fontSize: 72,
+    fontSize: 65,
     color: '#fff'
   },
   bodyContainer: {
@@ -54,7 +62,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'flex-end',
     paddingLeft: 25,
-    marginBottom: 40
+    marginBottom: 100
   },
   title: {
     fontSize: 60,
