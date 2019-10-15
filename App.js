@@ -1,15 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Weather from './components/weather'
+import Constants from 'expo'
 
-const API_KEY = 'e405a49c88462d007a0b53d3208dfbf3'
+const KEY = Expo.Constants.manifest.extra.mysecret
 
 export default class App extends React.Component {
 
   state = {
     isLoading: true,
-    latitude: 0,
-    longitude: 0,
     temperature: 0,
     weatherCondition: null,
     error: null,
@@ -31,13 +30,12 @@ export default class App extends React.Component {
   }
 
   fetchWeather(lat, lon) {
-    console.log(lat)
     fetch(
-      `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=${API_KEY}&units=imperial`
+      `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=${KEY}&units=imperial`
     )
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        console.log(KEY);
         this.setState({
           temperature: data.main.temp,
           weatherCondition: data.weather[0].main,

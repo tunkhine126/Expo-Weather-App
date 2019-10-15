@@ -25,6 +25,9 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "extra": {
+      "mysecret": "e405a49c88462d007a0b53d3208dfbf3"
     }
   }
 }
