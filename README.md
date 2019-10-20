@@ -3,7 +3,7 @@ The mobile weather app is a great introduction into how to build your first Reac
 
 ## Motivation
 This was initially built as a project to learn React Native. I felt inspired to share what I learned and the process in which I went about creating the app.
-You can read a full "how to" [here](https://medium.com/@tunkhine126/your-first-react-native-app-with-expo-372ceca3941d)
+You can read a full "how to" on Medium [here](https://medium.com/@tunkhine126/your-first-react-native-app-with-expo-372ceca3941d).
  
 ## Screenshots
 ![image](https://github.com/tunkhine126/Expo-Weather-App/blob/master/assets/Screen%20Shot%202019-10-20%20at%209.46.11%20AM.png)
