@@ -33,16 +33,16 @@ export default class App extends React.Component {
     fetch(
       `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=${KEY}&units=imperial`
     )
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          temperature: data.main.temp,
-          weatherCondition: data.weather[0].main,
-          isLoading: false,
-          location: data.name,
-          humidity: data.main.humidity
-         });
-      });
+    .then(res => res.json())
+    .then(data => {
+      this.setState({
+        temperature: data.main.temp,
+        weatherCondition: data.weather[0].main,
+        isLoading: false,
+        location: data.name,
+        humidity: data.main.humidity
+        });
+    });
   }
 
   

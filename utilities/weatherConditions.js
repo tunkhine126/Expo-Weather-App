@@ -1,4 +1,3 @@
-
 export const weatherConditions = {
   Rain: {
     color: '#005BEA',
