@@ -9,7 +9,6 @@ You can read a full "how to" [here](https://medium.com/@tunkhine126/your-first-r
 ![image](https://github.com/tunkhine126/Expo-Weather-App/blob/master/assets/Screen%20Shot%202019-10-20%20at%209.46.11%20AM.png)
 
 ## Tech/framework used
-Ex. -
 <b>Built with</b>
 - [React Native](https://facebook.github.io/react-native/) 
 - [Expo](https://expo.io)
