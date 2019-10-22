@@ -6,7 +6,7 @@ This was initially built as a project to learn React Native. I felt inspired to 
 You can read a full "how to" on Medium [here](https://medium.com/@tunkhine126/your-first-react-native-app-with-expo-372ceca3941d).
  
 ## Screenshots
-![image](https://github.com/tunkhine126/Expo-Weather-App/blob/master/assets/Screen%20Shot%202019-10-20%20at%209.46.11%20AM.png)
+![image](https://github.com/tunkhine126/Expo-Weather-App/blob/master/assets/Screen%20Shot%202019-10-20%20at%202.41.15%20PM.png?raw=true)
 
 ## Tech/framework used
 <b>Built with</b>
